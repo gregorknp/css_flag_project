@@ -61,7 +61,7 @@ The div element tagged as flag is the container in which the rest of the element
 </style>
 ```
 
-![](images\div_flag.png)
+![](images/div_flag.png)
 
 So far not many changes. Next we will target the <p> element which contains the text "The Flag". This is the first child of the class flag element, so we can use the selectors combination .flag > p (Using this notation .flag is the parent and p is the direct child):
 
@@ -84,11 +84,11 @@ So far not many changes. Next we will target the <p> element which contains the 
 ```
 Playing with the font-size in the inspector, 75 pixels is what I believe is closer to the desired result. We will see that the text inside the white circle fits perfectly using a font size of 75 pixels as well. Note that I have set the margin-top property to 0. I don't know why but after changing the font-size property, a margin with the same amount of pixels is added both top and down the text:
 
-![](images\flag_p_with_top_margin.png)
+![](images/flag_p_with_top_margin.png)
 
 After setting the margin-top to 0 we get the following result:
 
-![](images\flag_p_without_top_margin.png)
+![](images/flag_p_without_top_margin.png)
 
 Next, we will target the center of the flag in blue. This is represented by the first <div> tag inside flag class. The background color has been taken from the URL given in the comments. This element has the same width and half the height of the flag element, that means 900 pixels and 300 pixels respectively.
 NOTE: I'll change these fixed numbers and will use values relative to flag witdh and height so if these two change in the future, the size of the element will change accordingly. The position is set to absolute so it is relative to the position of the ancestor (Note that the flag element has the position property set) so to get it centered verticaly we have to push it 150 pixelse from the top. This way we have 150 pixels on the top + 300 pixels as the height of the element + 150 pixels on the bottom = 600 pixels:
@@ -118,7 +118,7 @@ NOTE: I'll change these fixed numbers and will use values relative to flag witdh
 </style>
 ```
 
-![](images\div_flag_div.png)
+![](images/div_flag_div.png)
 
 
 
