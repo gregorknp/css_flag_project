@@ -159,12 +159,59 @@ The position is set to absolute which makes the circle relative to the ancestor 
 </style>
 ```
 
-![](images\div_flag_div_div.png)
+![](images/div_flag_div_div.png)
 
-We are very close to the desired goal. Finally, we it's time to 
+We are very close to the desired goal. Finally, we it's time to style the p element that contains the text "of Laos". We just center the text, increase the font-size to fit the space of the circle and remove the top margin as we did with the text "The Flag":
 
+```html
+<style>
+    .flag {
+      position: relative;             /* This helps to position the first div tag */
+      background-color: #ce1126;    /* Set the background color */
+      width: 900px;                   /* width 900 pixels */
+      height: 600px                   /* height of 600 pixels */
+    }
+    .flag > p {                       /* With this selector combination we target the first <p> element of flag */
+      position: relative;             /* Position relative to ancestor flag element */
+      color: white;                 /* Text color white */
+      text-align: center;             /* We align the text to the center of the flag */
+      font-size: 75px;                /* Font size oif 75 pixels */
+      margin-top: 0px;                /* needed to adjust the flag to the top of the browser after changing the font size */
+    }
+    .flag > div {                     /* This represents the center of the flag */
+      background-color: #002868;    /* set the background color */
+      position: absolute;             /* With absolute, the position of the element is relative to the ancestor regardless its default position */
+      height: 300px;                  /* the height is half the height of the flag */
+      width: 900px;                   /* the width is the same as the width of the flag */
+      top: 150px;                     /* The flag gets centered verticaly, leaving the same above up and below */
+    }
+    .flag > div div {                 /* This represents the second div, the future white circle */
+      border-radius: 50%;             /* make the circle */
+      background-color: white;      /* set the background color */
+      position: absolute;             /* The position is relative to the ancestor div element */
+      width: 200px;                   /* witdh of 200 pixels */
+      height: 200px;                  /* height of 200 pixels */
+      left: 350px;                    /* The circle is centered horizontally in the ancestor div*/
+      top: 50px;                      /* the circle is centered verticaly in the ancestor div */
+    }
+    .flag > div > div > p {           /* Lastly, we target the p element inside the circle*/
+      text-align: center;             /* text centered */
+      font-size: 75px;                /* font size of 75 pixels */
+      margin-top: 0px;                /* we remove the margin created when setting the font size */
+    }  
+</style>
+```
 
+Final result:
+![](images/final_flag.png)
 
+What have we learnt in this exercise?
+- Use both class and element selectors.
+- Combine selectors to target specific html elements.
+- Play with different values of the position property.
 
+**Pending taks:**
+- Remove duplicate code.
+- Represent size of elements relative to their ancestors.
 
 
