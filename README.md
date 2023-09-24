@@ -91,7 +91,7 @@ After setting the margin-top to 0 we get the following result:
 ![](images/flag_p_without_top_margin.png)
 
 Next, we will target the center of the flag in blue. This is represented by the first <div> tag inside flag class. The background color has been taken from the URL given in the comments. This element has the same width and half the height of the flag element, that means 900 pixels and 300 pixels respectively.
-NOTE: I'll change these fixed numbers and will use values relative to flag witdh and height so if these two change in the future, the size of the element will change accordingly. The position is set to absolute so it is relative to the position of the ancestor (Note that the flag element has the position property set) so to get it centered verticaly we have to push it 150 pixelse from the top. This way we have 150 pixels on the top + 300 pixels as the height of the element + 150 pixels on the bottom = 600 pixels:
+NOTE: I'll change these fixed numbers and will use values relative to flag witdh and height so if these two change in the future, the size of the element will change accordingly. The position is set to absolute so it is relative to the position of the ancestor (Note that the flag element has the position property set) so to get it centered verticaly we have to push it 150 pixels from the top. This way we have 150 pixels on the top + 300 pixels as the height of the element + 150 pixels on the bottom = 600 pixels:
 
 ```html
   <style>
@@ -120,11 +120,48 @@ NOTE: I'll change these fixed numbers and will use values relative to flag witdh
 
 ![](images/div_flag_div.png)
 
+Now we will target the second div tag which will represent the whiste circle. In order to select the correct div we will use *.flag > div div*. This means: select the div element which is a child of the first div inside flag element. If we had more than one div at that level, we could have used something like *.flag > div > div*. 
 
 
+The position is set to absolute which makes the circle relative to the ancestor div element to make it easier to center. As usual, we set border-radius property to 50% to make a perfect cicle, set the background color and set width and heigth as instructed in the exercise. To center the circle both horizontally and vertically we need to adjust the left and pop properties. As the circle is inside the previous div, 900px width and 300px height, and has a width of 200px, we need to push it 50 pixels from the top of the previous div which leaves another 50px at the bottom having it centered vertically. Horizontally speaking, we need to push the circle 350px from the left which leaves another 350px at the rigth.
 
+```html
+<style>
+    .flag {
+      position: relative;             /* This helps to position the first div tag */
+      background-color: #ce1126;    /* Set the background color */
+      width: 900px;                   /* width 900 pixels */
+      height: 600px                   /* height of 600 pixels */
+    }
+    .flag > p {                       /* With this selector combination we target the first <p> element of flag */
+      position: relative;             /* Position relative to ancestor flag element */
+      color: white;                 /* Text color white */
+      text-align: center;             /* We align the text to the center of the flag */
+      font-size: 75px;                /* Font size oif 75 pixels */
+      margin-top: 0px;                /* needed to adjust the flag to the top of the browser after changing the font size */
+    }
+    .flag > div {                     /* This represents the center of the flag */
+      background-color: #002868;    /* set the background color */
+      position: absolute;             /* With absolute, the position of the element is relative to the ancestor regardless its default position */
+      height: 300px;                  /* the height is half the height of the flag */
+      width: 900px;                   /* the width is the same as the width of the flag */
+      top: 150px;                     /* The flag gets centered verticaly, leaving the same above up and below */
+    }
+    .flag > div div {                 /* This represents the second div, the future white circle */
+      border-radius: 50%;             /* make the circle */
+      background-color: white;      /* set the background color */
+      position: absolute;             /* The position is relative to the ancestor div element */
+      width: 200px;                   /* witdh of 200 pixels */
+      height: 200px;                  /* height of 200 pixels */
+      left: 350px;                    /* The circle is centered horizontally in the ancestor div*/
+      top: 50px;                      /* the circle is centered verticaly in the ancestor div */
+    }
+</style>
+```
 
+![](images\div_flag_div_div.png)
 
+We are very close to the desired goal. Finally, we it's time to 
 
 
 
